@@ -1,2 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.slider {
+    width: 80%;
+    margin: 20px auto;
+    overflow: hidden;
+    background-color: aliceblue;
+    position: relative;
+}
+.slider-wrapper {
+    display: flex;
+    transition: all ease 1s;
+}
+.slide-item {
+    padding: 0 50px;
+    flex: 0 0 100%;
+    
+}
+.prev-slide-btn {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+
+}
+.nex-slide-btn{
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
+}
 
 
