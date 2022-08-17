@@ -14,14 +14,14 @@
     background-color: aliceblue;
     position: relative;
 }
-.slider-wrapper {
+.slider-track {
     display: flex;
     transition: all ease 1s;
 }
 .slide-item {
+    min-height: 300px;
     padding: 0 50px;
-    flex: 0 0 100%;
-    
+    flex:  0 0 100%;   
 }
 .prev-slide-btn {
     position: absolute;

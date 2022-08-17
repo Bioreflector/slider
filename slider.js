@@ -5,33 +5,47 @@ function Slider (slider){
     const nextButton = slider.querySelector('.nex-slide-btn')
     const prevButton = slider.querySelector('.prev-slide-btn')
     const slideItems = slider.querySelectorAll('.slide-item')
-    const slideWrapper = slider.querySelector('.slider-wrapper')
+    const sliderTrack = slider.querySelector('.slider-track')
     let count = 0
     let witdth
     
     function init(){
         witdth = slider.offsetWidth
-        slideWrapper.style.witdth = `${witdth*slideItems.length} px`
+        sliderTrack.style.witdth = `${witdth*slideItems.length} px`
         rollSldie()
     }
-    window.addEventListener('load' , init)
+    init()
     window.addEventListener('resize' , init)
-    
-    function rollSldie(){
-        slideWrapper.style.transform = `translate(-${count*witdth}px)`
+
+    function checkBtn(){
+        if(count === 0){
+            prevButton.disabled = true
+        }
+        else(
+            prevButton.disabled = false
+        )
+        if(count === slideItems.length-1){
+           nextButton.disabled = true 
+        }
+        else{
+            nextButton.disabled = false
+        }
     }
+    checkBtn()
+
+
+    function rollSldie(){
+        sliderTrack.style.transform = `translate(-${count*witdth}px)`
+    }
+
     function rollNextSlide(){
         count++
-        if(count >= slideItems.length){
-            count = 0
-        }
+        checkBtn()
         rollSldie()
     }
     function rollPrevSlide(){
         count--
-        if(count < 0){
-            count = slideItems.length -1
-        }
+        checkBtn()
         rollSldie()  
     }
     prevButton.addEventListener('click' , rollPrevSlide)
